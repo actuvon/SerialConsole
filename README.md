@@ -2,6 +2,7 @@
 A small and simple command line interface designed for Arduino projects.
 
 You can bind your own commands to the console like this:
+
 console.AddCommand("led", cmd_LED, "Toggle the builtin LED.");
 
 Then you open up the Arduino Serial Monitor, type in LED, and watch it turn on!
