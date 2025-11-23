@@ -68,7 +68,8 @@ void SerialConsole::Listen(){
 
 				if(_bufferIndex >= _config.maxFullLineLength-1){
 					_config.IO_Stream.println("WARNING: Received a command that was longer than the max allowed line length. May need to change config settings.");
-					_commandBuffer[_config.maxFullLineLength] = '\0';
+					_commandBuffer[0] = '\0';
+					_bufferIndex = -1;
 					break;
 				}
 				if(_commandBuffer[_bufferIndex] == '\n' || _commandBuffer[_bufferIndex] == '\r' || _commandBuffer[_bufferIndex] == '\0'){
@@ -92,7 +93,7 @@ void SerialConsole::Listen(){
 				}
 
 				bool cmdFound = false;
-				if(strcmp(Arguments[0], "help") == 0){
+				if(strcmp(Arguments[0], "help") == 0 || Arguments[0][0] == '\0'){
 					if(strcmp(Arguments[1], "") == 0){
 						_config.IO_Stream.println("Type help <command> for help on a specific command.");
 					}

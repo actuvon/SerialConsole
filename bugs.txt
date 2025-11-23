@@ -1,0 +1,3 @@
+- Sending a blank line triggers a whole bunch of shit to come up.
+
+- If you enter a command that's too long, there is no recovery; it's just fucked.
