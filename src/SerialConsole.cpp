@@ -29,7 +29,7 @@ SerialConsole::SerialConsole(const SerialConsoleConfig& cfg) : _config(cfg)
 }
 
 void SerialConsole::AddCommand(char* trigger, Func function, char* helpMsg){
-	if(_numCommandsDefined < _config.numCommands-1){
+	if(_numCommandsDefined < _config.numCommands){
 		int commandNumber = _numCommandsDefined++;
 
 		Triggers[commandNumber] = trigger;
