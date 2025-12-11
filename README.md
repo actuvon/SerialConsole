@@ -34,6 +34,8 @@ void setup(){
 
 	// Add commands to the SerialConsole like this...
 	console.AddCommand("led_on", cmd_led_on, "Turn on the builtin LED.");
+	// This lets the user type in "led_on" in the Serial Monitor, and then the builtin LED will turn on!
+	// The description at the end shows up if you type "help led_on".
 }
 
 void loop(){
