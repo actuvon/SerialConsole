@@ -27,8 +27,8 @@ struct SerialConsoleConfig {
 	uint8_t maxFullLineLength = 50;     // maximum character count of any full command line (with arguments)
 	uint8_t maxArgLength = 10;		    // maximum character count of any single argument
 	uint8_t maxNumArgs = 5;			    // maximum number of arguments allowed in a single command line
-	char endOfLineOpt1 = '\n';          // this character marks the end/submission of a command line
-	char endOfLineOpt2 = '\r';          // an alternalte char to mark the end/submission of a command line
+	char cmdTerminator1 = '\n';         // this character marks the end/submission of a command line
+	char cmdTerminator2 = '\r';         // an alternalte char to mark the end/submission of a command line
 	unsigned long scanPeriod_ms = 250;  // how long will the SerialConsole wait between two consecutive scans in ms
 	Stream& IO_Stream;		            // you can change the type of stream the SerialConsole works with
 	const char* inputPrompter = "\n>> ";// a little thingy to show the user they can type - can be modified

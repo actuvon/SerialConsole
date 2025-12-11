@@ -72,9 +72,11 @@ void SerialConsole::Listen(){
 					_bufferIndex = -1;
 					break;
 				}
-				if(_commandBuffer[_bufferIndex] == '\n' || _commandBuffer[_bufferIndex] == '\r' || _commandBuffer[_bufferIndex] == '\0'){
+				else if(_commandBuffer[_bufferIndex] == _config.cmdTerminator1 || _commandBuffer[_bufferIndex] == _config.cmdTerminator2 || _commandBuffer[_bufferIndex] == '\0'){
 					_commandBuffer[_bufferIndex] = '\0';
-					execute = true;
+					if(_bufferIndex > 0) // Don't execute if we're just getting end-of-line characters with no actual content
+						execute = true;
+					else _bufferIndex = -1;
 					break;
 				}
 			}
