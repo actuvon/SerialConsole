@@ -13,11 +13,13 @@ In the serial monitor, the console will tell you what the available commands are
 
 SerialConsole is very lightweight on ROM and RAM, can be configured to work with any Arduino Stream object, and should run on any Arduino board that supports millis(). The whole library is barely 200 lines long.
 
-## Installation
-1) Click the green "Code" button at the top right of the page and download everything as a .zip.
-2) Extract the .zip to get a SerialConsole folder with all the contents from GitHub.
-3) Put that folder in your Arduino libraries folder (Document\Arduino\Libraries on windows).
-4) #include <SerialConsole.h> in your sketch. Check the BasicExample.ino for a quick start guide.
+## Features
+There are already tools like this out there. Why did I make a new one? Well, there are some features and values that I feel are core to a good terminal, that seemed to be missing in existing libraries.
+* **Precise RAM Control (Fixed Memory Footprint):** Uses the SerialConsoleConfig structure to allow you to precisely define the maximum number of commands, maximum command length, and maximum arguments. This lets you tune the memory footprint to your exact RAM budget on small microcontrollers.
+* **Built-in Help System:** Includes automatic command listing for unrecognized inputs and a structured help \<command> function to display optional command-specific helper messages. Error handling is clean and error messsages make sense.
+* **Integrated Polling Timer:** Uses millis() internally to allow you to set a configurable poll rate (scanPeriod_ms) without adding any timing complexity to your main loop().
+* **Bite Sized:** Good clean readability in the .h and .cpp files, so I can walk in and own the place if I want to change it.
+* **Configurable:** The SerialConsoleConfig structure makes it easy to make the SerialConsole act however you want it to. The IO_Stream can be changed from the Arduino Serial class to another one. Delimiters or line terminators can be adjusted. The ">> " prompter can also be changed.
 
 ## Useage
 Here is a simplified snippet from the BasicExample.ino to show how it works...
@@ -49,10 +51,8 @@ void cmd_led_on(){
 
 There are more features shown in the examples, for working with arguments, and for customizing the console's behavior, appearance, and memory footprint.
 
-## Features
-There are already tools like this out there. Why did I make a new one? Well, there are some features and values that I feel are core to a good terminal, that seemed to be missing in existing libraries.
-* **Precise RAM Control (Fixed Memory Footprint):** Uses the SerialConsoleConfig structure to allow you to precisely define the maximum number of commands, maximum command length, and maximum arguments. This lets you tune the memory footprint to your exact RAM budget on small microcontrollers.
-* **Built-in Help System:** Includes automatic command listing for unrecognized inputs and a structured help \<command> function to display optional command-specific helper messages. Error handling is clean and error messsages make sense.
-* **Integrated Polling Timer:** Uses millis() internally to allow you to set a configurable poll rate (scanPeriod_ms) without adding any timing complexity to your main loop().
-* **Bite Sized:** Good clean readability in the .h and .cpp files, so I can walk in and own the place if I want to change it.
-* **Configurable:** The SerialConsoleConfig structure makes it easy to make the SerialConsole act however you want it to. The IO_Stream can be changed from the Arduino Serial class to another one. Delimiters or line terminators can be adjusted. The ">> " prompter can also be changed.
+## Installation
+1) Click the green "Code" button at the top right of the page and download everything as a .zip.
+2) Extract the .zip to get a SerialConsole folder with all the contents from GitHub.
+3) Put that folder in your Arduino libraries folder (Document\Arduino\Libraries on windows).
+4) #include <SerialConsole.h> in your sketch. Check the BasicExample.ino for a quick start guide.
