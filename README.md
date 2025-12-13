@@ -48,3 +48,12 @@ void cmd_led_on(){
 ```
 
 There are more features shown in the examples, for working with arguments, and for customizing the console's behavior, appearance, and memory footprint.
+
+## Features
+There are already tools like this out there. Why did I make a new one? Well, none of them really suited me. I wanted a library that was very simple, but still fully met this list of features...
+* The ability to run functions from the Serial Monitor.
+* The ability to pass parameters to my functions from the Serial Monitor.
+* Very easy useage with 1 line to make the console, 1 line to add commands, and 1 line in the main loop.
+* An adjustable, predictable, clean memory footprint that doesn't move around - good for chips with baby RAMs, but expandable for bigger chips too.
+* A reasonably straightforward configuration tool to adjust all your settings.
+* Good clean readability in the .h and .cpp files, so you can walk in and own the place if you want to.

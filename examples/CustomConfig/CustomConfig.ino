@@ -29,24 +29,25 @@ const char* myDelimiter = "-";
 //       to "No Line Ending", and then you can try using the new, custom command terminators by entering things like:
 //       "hello|led;" which will run the "hello" command, wait 1 second, then run the "led" command
 //    
-SerialConsole console = ([]() {
-	SerialConsoleConfig cfg;
+SerialConsole console(
+    ([]() {
+        SerialConsoleConfig cfg;
 
-	cfg.numCommands = 15;				 // Set the maximum allowable number of commands that can be added to this SerialConsole object
-	cfg.maxFullLineLength = 40;  // Shorten the maximum allowable length of a full command line with arguments, to save memory
-	cfg.maxArgLength = 5;				 // Decrease the maximum allowable length of each argument to save memory
-	cfg.maxNumArgs = 10;         // Increase the number of arguments allowed in a command at the cost of RAM
-	cfg.cmdTerminator2 = ';';		 // This is one of two chars you can use to mark the end of a command line
-	cfg.cmdTerminator1 = '|';    // In the default configuration this is \n, but you COULD change it
-	cfg.scanPeriod_ms = 1000;		 // Wait at least 1000 milliseconds between Listen()ing or running commands
-	cfg.inputPrompter = "\n☺: "; // Customize the look of your SerialConsole
-	cfg.delimiter = "-";         // A delemiter other than a space can be set
+        cfg.numCommands = 15;        // Set the maximum allowable number of commands that can be added to this SerialConsole object
+        cfg.maxFullLineLength = 40;  // Shorten the maximum allowable length of a full command line with arguments, to save memory
+        cfg.maxNumArgs = 10;         // Increase the number of arguments allowed in a command at the cost of RAM
+        cfg.cmdTerminator2 = ';';    // This is one of two chars you can use to mark the end of a command line
+        cfg.cmdTerminator1 = '|';    // In the default configuration this is \n, but you COULD change it
+        cfg.scanPeriod_ms = 1000;    // Wait at least 1000 milliseconds between Listen()ing or running commands
+        cfg.inputPrompter = "\n☺: "; // Customize the look of your SerialConsole
+        cfg.delimiter = '-';         // A delemiter other than a space can be set
 
-	return cfg;
-})();
+        return cfg;
+    })()
+);
 
 void setup(){
-	
+    
   // Start up the Arduino Serial interface
   Serial.begin(9600);
   while(!Serial);
@@ -69,26 +70,26 @@ void loop(){
 
 // Define a function for our command to bind
 void cmd_hello(){
-	Serial.println("Why, hello there!");
+    Serial.println("Why, hello there!");
 }
 
 // Define a function for a command that actually does something
 void cmd_LED(){
-	Serial.println("Toggling the LED");
-	
-	PinState = !PinState;
-	digitalWrite(LedPin, PinState);
+    Serial.println("Toggling the LED");
+    
+    PinState = !PinState;
+    digitalWrite(LedPin, PinState);
 }
 
 // Utilize arguments from the command line
 void cmd_add(){
-	// Arguments are designed for use as lightweight c strings, but can easily work with Arduino string functions
-	float arg1 = String(console.Arguments[1]).toFloat(); 
-	float arg2 = String(console.Arguments[2]).toFloat();
+    // Arguments are designed for use as lightweight c strings, but can easily work with Arduino string functions
+    float arg1 = String(console.Arguments[1]).toFloat(); 
+    float arg2 = String(console.Arguments[2]).toFloat();
 
-	Serial.print(arg1);
-	Serial.print(" + ");
-	Serial.print(arg2);
-	Serial.print(" = ");
-	Serial.println(arg1 + arg2);
+    Serial.print(arg1);
+    Serial.print(" + ");
+    Serial.print(arg2);
+    Serial.print(" = ");
+    Serial.println(arg1 + arg2);
 }
