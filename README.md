@@ -51,8 +51,8 @@ There are more features shown in the examples, for working with arguments, and f
 
 ## Features
 There are already tools like this out there. Why did I make a new one? Well, there are some features and values that I feel are core to a good terminal, that seemed to be missing in existing libraries.
-* *Precise RAM Control (Fixed Memory Footprint):* Uses the SerialConsoleConfig structure to allow you to precisely define the maximum number of commands, maximum command length, and maximum arguments. This lets you tune the memory footprint to your exact RAM budget on small microcontrollers.
-* *Built-in Help System:* Includes automatic command listing for unrecognized inputs and a structured help \<command> function to display optional command-specific helper messages. Error handling is clean and error messsages make sense.
-* *Integrated Polling Timer:* Uses millis() internally to allow you to set a configurable poll rate (scanPeriod_ms) without adding any timing complexity to your main loop().
-* *Bite Sized:* Good clean readability in the .h and .cpp files, so I can walk in and own the place if I want to change it.
-* *Configurable:* The SerialConsoleConfig structure makes it easy to make the SerialConsole act however you want it to. The IO_Stream can be changed from the Arduino Serial class to another one. Delimiters or line terminators can be adjusted. The ">> " prompter can also be changed.
+* **Precise RAM Control (Fixed Memory Footprint):** Uses the SerialConsoleConfig structure to allow you to precisely define the maximum number of commands, maximum command length, and maximum arguments. This lets you tune the memory footprint to your exact RAM budget on small microcontrollers.
+* **Built-in Help System:** Includes automatic command listing for unrecognized inputs and a structured help \<command> function to display optional command-specific helper messages. Error handling is clean and error messsages make sense.
+* **Integrated Polling Timer:** Uses millis() internally to allow you to set a configurable poll rate (scanPeriod_ms) without adding any timing complexity to your main loop().
+* **Bite Sized:** Good clean readability in the .h and .cpp files, so I can walk in and own the place if I want to change it.
+* **Configurable:** The SerialConsoleConfig structure makes it easy to make the SerialConsole act however you want it to. The IO_Stream can be changed from the Arduino Serial class to another one. Delimiters or line terminators can be adjusted. The ">> " prompter can also be changed.
