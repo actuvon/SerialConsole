@@ -1,0 +1,28 @@
+#######################################
+# Syntax Coloring Map for SerialConsole
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SerialConsole	KEYWORD1
+SerialConsoleConfig	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+AddCommand	KEYWORD2
+Listen	KEYWORD2
+PuttyMode	KEYWORD2
+
+#######################################
+# Constants and Variables (LITERAL1)
+#######################################
+
+Arguments	LITERAL1
+ArgCount	LITERAL1
+Triggers	LITERAL1
+Functions	LITERAL1
+HelpMsg	LITERAL1

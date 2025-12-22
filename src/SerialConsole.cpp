@@ -22,7 +22,7 @@ SerialConsole::SerialConsole(const SerialConsoleConfig& cfg) : _config(cfg){
         Triggers[i] = nullptr;
         HelpMsg[i] = nullptr;
         Functions[i] = nullptr;
-    } 
+    }
     _commandBuffer[0] = '\0';
 }
 
