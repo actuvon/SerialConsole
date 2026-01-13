@@ -91,4 +91,4 @@ There are more features shown in the examples, for working with arguments, and f
 1) Click the green "Code" button at the top right of the page and download everything as a .zip.
 2) Extract the .zip to get a SerialConsole folder with all the contents from GitHub.
 3) Put that folder in your Arduino libraries folder (Document\Arduino\Libraries on windows).
-4) #include <SerialConsole.h> in your sketch. Check the BasicExample.ino for a quick start guide.
+4) #include <SerialConsole.h> in your sketch. Check the BasicExample.ino for a quick start guide. 
